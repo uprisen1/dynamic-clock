@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Lockscreen Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="lockscreen-container">
+        <!-- Date at the top, just like iOS -->
+        <div id="date">Loading date...</div>
+        
+        <!-- Time container with split units for sizing -->
+        <div class="clock-wrapper">
+            <span id="time-main">00:00</span>
+            <span id="time-seconds">00</span>
+        </div>
+
+        <!-- Dynamic Action Button -->
+        <button id="music-btn" class="play-button" aria-label="Play Theme"></button>
+    </div>
+
+    <!-- Background Audio (Using a reliable open-source midi/audio stream URL) -->
+    <audio id="theme-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
