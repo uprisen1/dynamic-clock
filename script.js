@@ -5,23 +5,18 @@ function updateClock() {
     let minutes = now.getMinutes();
     let seconds = now.getSeconds();
 
-    // Formatting padding
     hours = hours < 10 ? '0' + hours : hours;
     minutes = minutes < 10 ? '0' + minutes : minutes;
     seconds = seconds < 10 ? '0' + seconds : seconds;
 
-    // Update main clock (HH:MM)
     document.getElementById('time-main').textContent = `${hours}:${minutes}`;
-    
-    // Update seconds independently
     document.getElementById('time-seconds').textContent = seconds;
 
-    // Standard iOS Lockscreen Date display (e.g., "Tuesday, June 2")
     const options = { weekday: 'long', month: 'long', day: 'numeric' };
     document.getElementById('date').textContent = now.toLocaleDateString('en-US', options);
 }
 
-// Interactive Audio Player Setup
+// Audio Engine Setup
 const musicBtn = document.getElementById('music-btn');
 const themeSong = document.getElementById('theme-song');
 
@@ -32,6 +27,21 @@ musicBtn.addEventListener('click', () => {
     } else {
         themeSong.pause();
         musicBtn.classList.remove('playing');
+    }
+});
+
+// Fullscreen Engine Setup
+const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+fullscreenBtn.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+        // Enters fullscreen mode
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    } else {
+        // Exits fullscreen mode if clicked again
+        document.exitFullscreen();
     }
 });
 

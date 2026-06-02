@@ -17,6 +17,32 @@ body {
     color: #ffffff;
 }
 
+/* Tiny Fullscreen Button in Top Right Corner */
+#fullscreen-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    opacity: 0.4; /* Faded out so it doesn't distract */
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 10;
+}
+
+#fullscreen-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+
+#fullscreen-btn svg {
+    width: 100%;
+    height: 100%;
+}
+
 /* Container simulating a clean screen overlay */
 .lockscreen-container {
     display: flex;
@@ -26,6 +52,7 @@ body {
     width: 100%;
     max-width: 450px;
     padding: 20px;
+    user-select: none; /* Prevents text highlighting accidentally */
 }
 
 /* iOS Style Date */
@@ -41,7 +68,7 @@ body {
 /* Massive Clock Wrapper */
 .clock-wrapper {
     display: flex;
-    align-items: baseline; /* Keeps the smaller seconds aligned to the bottom text line */
+    align-items: baseline;
     justify-content: center;
     margin-bottom: 60px;
 }
@@ -59,7 +86,7 @@ body {
     font-size: 2.2rem;
     font-weight: 400;
     margin-left: 8px;
-    opacity: 0.7; /* Slightly faded out for visual hierarchy */
+    opacity: 0.7;
 }
 
 /* Round Green iOS Style Interactive Button */
@@ -67,7 +94,7 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: #2ed573; /* Vibrant iOS Green */
+    background-color: #2ed573;
     border: none;
     cursor: pointer;
     position: relative;
@@ -100,7 +127,7 @@ body {
     transition: all 0.2s ease;
 }
 
-/* CSS Pause Icon (Swaps smoothly when playing) */
+/* CSS Pause Icon */
 .play-button.playing::before {
     border-top: none;
     border-bottom: none;
